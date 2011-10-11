@@ -1,0 +1,63 @@
+package com.sample
+ 
+import com.p3.model.TwitterEvent;
+
+
+rule "osde tweet"
+when
+    $t : TwitterEvent(message matches ".*OSDE.*|.*osde.*") 
+then
+   System.out.println( "SenderUsername: @" + $t.getSenderUsername());
+   System.out.println( "Locale" + $t.getUserLocale()); 
+   System.out.println( "Text:: " + $t.getMessage() ); 
+   System.out.println( "mentions: " + $t.getUserMentions());
+   System.out.println( "*------------------*"); 
+end
+
+rule "navarro tweet"
+when
+    $t : TwitterEvent(userLocale matches ".*Navarro.*|.*navarro.*" ) 
+then
+   System.out.println( "SenderUsername: @" + $t.getSenderUsername());
+   System.out.println( "Locale: " + $t.getUserLocale()); 
+   System.out.println( "Text: " + $t.getMessage() ); 
+   System.out.println( "mentions: " + $t.getUserMentions());
+   System.out.println( "*------------------*"); 
+end
+
+rule "movistar tweet"
+when
+    $t : TwitterEvent(message matches ".*@MovistarArg.*" | senderUserName matches ".*MovistarArg.*") 
+then
+   System.out.println( "SenderUsername: @" + $t.getSenderUsername());
+   System.out.println( "Locale" + $t.getUserLocale()); 
+   System.out.println( "Text: " + $t.getMessage() ); 
+   System.out.println( "mentions: " + $t.getUserMentions());
+   System.out.println( "*------------------*"); 
+end
+
+
+
+/*
+rule "argentina tweet"
+when
+    $t : TwitterEvent(userLocale matches ".*Argentina.*|.*argentina.*" ) 
+then
+   System.out.println( "SenderUsername: @" + $t.getSenderUsername());
+   System.out.println( "Locale" + $t.getUserLocale()); 
+   System.out.println( "Text: " + $t.getMessage() ); 
+   System.out.println( "mentions: " + $t.getUserMentions());
+   System.out.println( "*------------------*"); 
+end
+
+
+rule "a tweet"
+when
+    $t : TwitterEvent() 
+then
+   System.out.println( "SenderUsername: @" + $t.getSenderUsername()); 
+   System.out.println( "Text:: " + $t.getMessage() ); 
+   System.out.println( "mentions: " + $t.getUserMentions());
+   System.out.println( "*------------------*"); 
+end
+*/ 
