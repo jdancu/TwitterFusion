@@ -25,7 +25,6 @@ public class TwitterStreamAnalizer {
 		// .setHttpProxyUser("MT26548596");
 
 		
-		
 		TwitterStreamFactory tf = new TwitterStreamFactory(cb.build());
 		TwitterStream twitterStream = tf.getInstance();
 
